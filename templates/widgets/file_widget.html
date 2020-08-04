@@ -1,0 +1,19 @@
+<style>
+    div#{{ widget.attrs.id }}-div {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+    }
+
+    img#{{ widget.attrs.id }}-output, img#{{ widget.attrs.id }}-image-display {
+        width: 100%;
+    }
+</style>
+
+<div id="{{ widget.attrs.id }}-div">
+    {% include 'django/forms/widgets/file.html' %}
+
+    {% if value %}
+        <img id="{{ attrs.id }}-image-display" src="{{ value.url }}" alt="{{ value.name }}">
+    {% endif %}
+</div>
